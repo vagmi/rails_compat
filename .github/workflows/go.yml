@@ -19,7 +19,7 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v3
       with:
-        go-version: 1.19  # Use the Go version you need
+        go-version: 1.22.0
 
     - name: Install dependencies
       run: go mod tidy  # Ensures module-defined dependencies are up to date
