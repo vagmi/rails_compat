@@ -1,0 +1,28 @@
+name: Go CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.19  # Use the Go version you need
+
+    - name: Install dependencies
+      run: go mod tidy  # Ensures module-defined dependencies are up to date
+
+    - name: Run tests
+      run: go test ./...  # Run all tests in the module
